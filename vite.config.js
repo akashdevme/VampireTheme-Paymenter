@@ -12,7 +12,7 @@ export default defineConfig({
                 path.resolve(import.meta.dirname, 'css/app.css'),
                 'resources/css/filament/admin/theme.css',
             ],
-            buildDirectory: 'sanguine/',
+            buildDirectory: 'VampireTheme-Paymenter/',
             refresh: true
         }),
         tailwindcss(),

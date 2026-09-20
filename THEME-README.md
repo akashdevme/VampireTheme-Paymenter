@@ -1,8 +1,39 @@
 # Sanguine — a vampire-luxury theme for Paymenter
 
-Built on top of Paymenter's default theme. Everything not mentioned below
-(page structure, checkout logic, ticket system, etc.) is untouched — only
-look and feel changed.
+## Update log
+
+**v1.1 — professional polish pass**
+- New gothic jewel-tone status system: `--color-success` (emerald), `--color-warning`
+  (amber), `--color-error` (garnet), `--color-info` (amethyst), `--color-inactive`
+  (slate-mauve) — each with distinct light/dark values. Use via `.badge-success`,
+  `.badge-error`, `.badge-warning`, `.badge-info`, `.badge-inactive`, `.badge-primary`.
+- New reusable primitives in `css/app.css`: `.icon-badge` (circular icon chip),
+  `.divider-ornament` (line–gem–line section break, also as `<x-divider-ornament />`),
+  `.skeleton` (brand-tinted loading shimmer), `.card-hover` (lift + gold border on
+  hover), `.table-premium` (billing-table styling), `.bg-motif` (faint gold dot-grid
+  texture for hero/empty sections).
+- Rebuilt `dashboard.blade.php`: personalized "Welcome back, name" header, a new
+  at-a-glance KPI row (services/invoices/tickets counts as proper `.card`s with
+  icon badges), every section now sits in a real card instead of a bare div, and
+  Unpaid Invoices is the page's `.card-trim` "signature" card.
+- Fixed a second wave of the same broken-color-class bug found in the login page —
+  it turned out to run through every form primitive: `input`, `checkbox`, `select`,
+  `textarea`, and `radio` all referenced classes like `bg-primary-800` or
+  `text-primary-100` that don't exist in this token system. All five now use real
+  tokens, plus a proper focus glow (`focus:ring-4 focus:ring-primary/10`) and
+  small-caps labels for a more premium form feel. `register.blade.php` had the
+  same background bug as `login.blade.php` originally did — fixed the same way,
+  wrapped in `.card-trim` to match.
+- `toggle.blade.php` now glows when switched on.
+- Sidebar nav: active links get a left accent bar in the brand color instead of
+  just a background tint, separators are a thin gold gradient instead of flat
+  grey, and a stray `divide-gray-200` (same class-name bug as above) is fixed.
+
+**v1.0** — initial theme: vampire-luxury color tokens, 20-palette floating
+switcher, Cormorant Garamond + Inter typography, login page fix. See below.
+
+---
+
 
 ## What's different from the default theme
 
@@ -81,7 +112,7 @@ Custom CSS/JS needs a rebuild — nothing shows up from just editing the
 files:
 
 ```bash
-npm run build sanguine
+npm run build VampireTheme-Paymenter
 ```
 
 (Blade/PHP file edits — like tweaking `theme.php` or any `.blade.php`

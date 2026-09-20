@@ -1,9 +1,9 @@
 <form
-    class="mx-auto flex flex-col gap-2 mt-4 px-6 sm:px-14 pb-10 bg-primary-800 rounded-md xl:max-w-[60%] w-full"
+    class="card-trim mx-auto flex flex-col gap-2 mt-4 px-6 sm:px-14 pb-10 xl:max-w-[60%] w-full"
     wire:submit.prevent="submit" id="register">
     <div class="flex flex-col items-center my-14">
         <x-logo class="h-10" />
-        <h1 class="text-2xl text-center mt-6">{{ __('auth.sign_up_title') }} </h1>
+        <h1 class="text-3xl text-center mt-6">{{ __('auth.sign_up_title') }} </h1>
     </div>
     <div class="flex flex-col md:grid md:grid-cols-2 gap-4">
         <x-form.input name="first_name" type="text" :label="__('general.input.first_name')"
@@ -37,7 +37,7 @@
 
     <div class="text-base text-center rounded-md py-2 mt-6 text-sm">
         {{ __('auth.already_have_account') }}
-        <a class="text-sm text-secondary-500 text-secondary hover:underline" href="{{ route('login') }}" wire:navigate>
+        <a class="text-sm text-secondary hover:underline" href="{{ route('login') }}" wire:navigate>
             {{ __('auth.sign_in') }}
         </a>
     </div>

@@ -3,7 +3,7 @@
         @foreach (\App\Classes\Navigation::getLinks() as $nav)
         @if (!empty($nav['children']))
         <div x-data="{ activeAccordion: {{ $nav['active'] ? 'true' : 'false' }} }"
-            class="relative w-full mx-auto overflow-hidden text-sm font-normal divide-y divide-gray-200">
+            class="relative w-full mx-auto overflow-hidden text-sm font-normal divide-y divide-neutral">
             <div class="cursor-pointer">
                 <button @click="activeAccordion = !activeAccordion"
                     class="flex items-center justify-between w-full p-3 text-sm font-semibold whitespace-nowrap rounded-lg hover:bg-primary/5">
@@ -23,7 +23,7 @@
                         <div class="flex items-center space-x-2">
                             <x-navigation.link :href="$child['url']"
                                 :spa="$child['spa'] ?? true"
-                                class="{{ $child['active'] ? 'text-primary font-bold' : '' }}">
+                                class="transition-colors {{ $child['active'] ? 'text-primary font-bold' : 'hover:text-primary' }}">
                                 {{ $child['name'] }}
                             </x-navigation.link>
                         </div>
@@ -33,7 +33,7 @@
             </div>
         </div>
         @else
-        <div class="flex items-center rounded-lg {{ $nav['active'] ? 'bg-primary/5' : 'hover:bg-primary/5' }}">
+        <div class="flex items-center rounded-lg border-l-2 transition-all duration-200 {{ $nav['active'] ? 'bg-primary/10 border-primary' : 'border-transparent hover:bg-primary/5 hover:border-primary/30' }}">
             <x-navigation.link :href="$nav['url']"
                 :spa="$nav['spa'] ?? true" class="w-full">
                 @isset($nav['icon'])
@@ -45,7 +45,7 @@
         </div>
         @endif
         @isset($nav['separator'])
-        <div class="h-px w-full bg-neutral"></div>
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent my-1"></div>
         @endisset
         @endforeach
     </div>
@@ -54,7 +54,7 @@
         @foreach (\App\Classes\Navigation::getDashboardLinks() as $nav)
         @if (!empty($nav['children']))
         <div x-data="{ activeAccordion: {{ $nav['active'] ? 'true' : 'false' }} }"
-            class="relative w-full mx-auto overflow-hidden text-sm font-normal divide-y divide-gray-200">
+            class="relative w-full mx-auto overflow-hidden text-sm font-normal divide-y divide-neutral">
             <div class="cursor-pointer">
                 <button @click="activeAccordion = !activeAccordion"
                     class="flex items-center justify-between w-full p-3 text-sm font-semibold whitespace-nowrap rounded-lg hover:bg-primary/5">
@@ -75,7 +75,7 @@
                             <div class="flex items-center space-x-2">
                                 <x-navigation.link :href="$child['url']"
                                     :spa="$child['spa'] ?? true"
-                                    class="{{ $child['active'] ? 'text-primary font-bold' : '' }}">
+                                    class="transition-colors {{ $child['active'] ? 'text-primary font-bold' : 'hover:text-primary' }}">
                                     {{ $child['name'] }}
                                 </x-navigation.link>
                             </div>
@@ -86,7 +86,7 @@
             </div>
         </div>
         @else
-        <div class="flex items-center rounded-lg {{ $nav['active'] ? 'bg-primary/5' : 'hover:bg-primary/5' }}">
+        <div class="flex items-center rounded-lg border-l-2 transition-all duration-200 {{ $nav['active'] ? 'bg-primary/10 border-primary' : 'border-transparent hover:bg-primary/5 hover:border-primary/30' }}">
             <x-navigation.link :href="$nav['url']"
                 :spa="$nav['spa'] ?? true"
                 class="w-full">
@@ -99,7 +99,7 @@
         </div>
         @endif
         @isset($nav['separator'])
-        <div class="h-px w-full bg-neutral"></div>
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent my-1"></div>
         @endisset
         @endforeach
         <div class="flex flex-row items-center mt-4 justify-between md:hidden">

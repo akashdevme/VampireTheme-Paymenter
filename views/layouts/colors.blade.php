@@ -12,12 +12,12 @@
         --color-muted: {{ str_replace(',', '', preg_replace('/^hsl\((.+)\)$/', '$1', theme('muted', '0 0% 40%'))) }};
         --color-inverted: {{ str_replace(',', '', preg_replace('/^hsl\((.+)\)$/', '$1', theme('inverted', '100 100% 100%'))) }};
 
-        /* State Colors */
-        --color-success: 142 71% 45%;
-        --color-error: 0 75% 60%;
-        --color-warning: 25 95% 53%;
-        --color-inactive: 0 0% 63%;
-        --color-info: 210 100% 60%;
+        /* State Colors (Light) - gothic jewel tones */
+        --color-success: 152 55% 36%;
+        --color-error: 8 72% 48%;
+        --color-warning: 38 82% 46%;
+        --color-inactive: 320 8% 52%;
+        --color-info: 265 42% 52%;
 
         /* Background Colors (Light) */
         --color-background: {{ str_replace(',', '', preg_replace('/^hsl\((.+)\)$/', '$1', theme('background', '100 100% 100%'))) }};
@@ -34,6 +34,13 @@
 
         /* Neutral Colors - Borders, Accents... (Dark) */
         --color-neutral: {{ str_replace(',', '', preg_replace('/^hsl\((.+)\)$/', '$1', theme('dark-neutral', '0 0% 17%'))) }};
+
+        /* State Colors (Dark) - gothic jewel tones, brightened for a dark backdrop */
+        --color-success: 152 55% 48%;
+        --color-error: 8 78% 58%;
+        --color-warning: 38 85% 58%;
+        --color-inactive: 320 8% 62%;
+        --color-info: 265 50% 66%;
 
         /* Text Colors (Dark) */
         --color-base: {{ str_replace(',', '', preg_replace('/^hsl\((.+)\)$/', '$1', theme('dark-base', '100 100% 100%'))) }};
